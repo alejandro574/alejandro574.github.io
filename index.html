@@ -1,258 +1,375 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peluquería Estilo</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap">
+    <title>Peluquería Alejandro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Colores */
         :root {
-            --primary-color: #8e44ad;
-            --secondary-color: #f39c12;
-            --text-color: #2c3e50;
+            --color1: #0086e8; /* Azul primario */
+            --color2: #21abfb; /* Azul claro */
+            --color3: #f1f1f1; /* Gris claro */
+            --color4: #ff0f0e; /* Rojo */
+            --color5: #ffffff; /* Blanco */
         }
-
-        /* Fondo de pantalla completo */
-        html, body {
-            height: 100%;
+    
+        body {
+            background-color: var(--color3); /* Fondo general */
+            font-family: 'Poppins', sans-serif;
+            color: #333;
             margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text-color);
-            background-image: url(../images/img1.webp); /* Imagen local */
-            background-size: cover;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-position: center;
+        }
+    
+        section {
+            padding: 4rem 0;
+            transition: background-color 0.3s ease;
+        }
+    
+        #aprendizaje {
+            background-color: #e3f2fd; /* Azul muy claro */
+        }
+    
+        #instructor {
+            background-color: #fff3e0; /* Naranja claro */
+        }
+    
+        #temario {
+            background-color: #e8f5e9; /* Verde muy claro */
+        }
+    
+        #faq {
+            background-color: #f3e5f5; /* Morado claro */
+        }
+    
+        #precio {
+            background-color: #ede7f6; /* Lila claro */
+        }
+    
+        #contacto {
+            background-color: #ffe0e0; /* Rosa claro */
+        }
+    
+        footer {
+            background-color: var(--color1); /* Azul primario */
+            color: white;
+            padding: 1rem 0;
+        }
+    
+        h2 {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Pequeña sombra al texto */
+        }
+    
+      
+        
+    
+    
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hover-grow:hover {
+            transform: scale(1.05);
+        }
+        .btn-reservar {
+            display: inline-block;
+            background-color: var(--color4); /* Rojo */
+            color: var(--color5); /* Blanco */
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Cabecera */
+        .btn-reservar:hover {
+            background-color: #d00000; /* Rojo más oscuro */
+            transform: translateY(-2px); /* Efecto flotante */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
         header {
-            background: rgba(142, 68, 173, 0.8); /* Color de fondo semi-transparente */
-            color: #fff;
-            padding: 40px 20px;
+            background-image: url('../images/img1.webp'); /* Cambia esta URL por la imagen que deseas usar */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: var(--color5);
             text-align: center;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 6rem 1rem;
         }
 
         header h1 {
-            font-size: 3em;
-            margin: 0;
-            letter-spacing: 2px;
+            font-size: 3rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
         }
 
         header p {
-            font-size: 1.3em;
-            font-style: italic;
-            margin-top: 10px;
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
         }
 
-        /* Navegación */
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: rgba(243, 156, 18, 0.9); /* Color semi-transparente */
-            padding: 15px 0;
-        }
+        /* Respuesta dinámica con media queries */
+        @media (max-width: 1024px) {
+            header h1 {
+                font-size: 2rem;
+            }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: 600;
-            padding: 8px 15px;
-            border-radius: 5px;
+            header p {
+                font-size: 1.2rem;
+            }
         }
-
-        nav a:hover {
-            background-color: rgba(142, 68, 173, 0.7);
-        }
-
-        /* Sección de Acerca de */
-        #about {
-            padding: 50px;
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 40px 20px;
-            border-radius: 10px;
-        }
-
-        #about p {
-            font-size: 1.2em;
-            max-width: 700px;
-            margin: 20px auto;
-            line-height: 1.8;
-        }
-
-        /* Servicios */
-        #services {
-            padding: 60px 20px;
-            background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
-            text-align: center;
-        }
-
-        #services h2 {
-            margin-bottom: 20px;
-        }
-
-        .service-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .service-item {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 30px 20px;
-            width: 250px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-        }
-
-        .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-            border-color: var(--primary-color);
-        }
-
-        .service-item h3 {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-        }
-
-        /* Formulario de Contacto */
-        #contact {
-            padding: 50px;
-            background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
-            text-align: center;
-            border-radius: 10px;
-            margin: 40px 20px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        form {
-            max-width: 600px;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            margin-top: 15px;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        input, textarea {
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
-            margin-top: 5px;
-            transition: border-color 0.3s;
-        }
-
-        input:focus, textarea:focus {
-            border-color: var(--secondary-color);
-            outline: none;
-        }
-
-        button {
-            margin-top: 20px;
-            padding: 15px;
-            border: none;
-            background-color: var(--primary-color);
-            color: #fff;
-            font-size: 1em;
-            font-weight: 600;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #663399;
-        }
-
-        /* Pie de página */
-        footer {
-            background-color: var(--primary-color);
-            color: #fff;
-            text-align: center;
-            padding: 15px 0;
-            font-size: 0.9em;
+        @media (max-width: 768px) {
+            header {
+                background-position: top;
+                padding: 4rem 1rem;
+            }
         }
     </style>
 </head>
-<body>
+<body class="bg-color3 font-poppins text-gray-800">
 
-    <!-- Cabecera -->
-    <header>
-        <h1>Peluquería Estilo</h1>
-        <p>Transformando tu estilo con un toque de elegancia</p>
-    </header>
+<!-- Header con CTA -->
+<header class="relative bg-color1 text-white text-center py-20">
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    <div class="relative z-10">
+        <h1 class="text-5xl font-bold mb-4 fade-in">Bienvenido a Peluquería Alejandro 💈</h1>
+        <p class="text-xl italic mb-8 fade-in">Donde cada corte es una obra de arte</p>
+        <a href="#precio" class="inline-block bg-color4 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-red-600 hover-grow">Reserva tu Cita Ahora</a>
+    </div>
+</header>
 
-    <!-- Navegación -->
-    <nav>
-        <a href="#about">Acerca de</a>
-        <a href="#services">Servicios</a>
-        <a href="#contact">Contacto</a>
-    </nav>
-
-    <!-- Acerca de -->
-    <section id="about">
-        <h2>Acerca de Nosotros</h2>
-        <p>En Peluquería Estilo, ofrecemos servicios de alta calidad para el cuidado y estilo de tu cabello. 
-           Nuestro equipo de expertos en belleza está comprometido en brindarte una experiencia excepcional, 
-           personalizada a tus necesidades y gustos.</p>
-    </section>
-
-    <!-- Servicios -->
-    <section id="services">
-        <h2>Nuestros Servicios</h2>
-        <div class="service-container">
-            <div class="service-item">
-                <h3>Corte de Cabello</h3>
-                <p>Corte personalizado para hombres, mujeres y niños. Damos un estilo único a cada cliente.</p>
-            </div>
-            <div class="service-item">
-                <h3>Coloración</h3>
-                <p>Aplicamos técnicas de coloración de alta calidad para lograr el tono perfecto para ti.</p>
-            </div>
-            <div class="service-item">
-                <h3>Peinados</h3>
-                <p>Peinados especiales para cualquier ocasión: bodas, fiestas y eventos importantes.</p>
-            </div>
+<!-- Navegación -->
+<nav class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold text-color1">Peluquería Alejandro</a>
+        <div class="space-x-4">
+            <a href="#aprendizaje" class="text-gray-600 hover:text-color1 hover-grow">Servicios</a>
+            <a href="#instructor" class="text-gray-600 hover:text-color1 hover-grow">Nuestro Barbero</a>
+            <a href="#temario" class="text-gray-600 hover:text-color1 hover-grow">Estilos</a>
+            <a href="#faq" class="text-gray-600 hover:text-color1 hover-grow">Preguntas</a>
+            <a href="#precio" class="text-gray-600 hover:text-color1 hover-grow">Precios</a>
+            <a href="#contacto" class="text-gray-600 hover:text-color1 hover-grow">Contacto</a>
         </div>
-    </section>
+    </div>
+</nav>
 
-    <!-- Formulario de Contacto -->
-    <section id="contact">
-        <h2>Contáctanos</h2>
-        <form action="#" method="post">
-            <label for="name">Nombre</label>
-            <input type="text" id="name" name="name" required>
+<!-- Que vas a aprender (Servicios) -->
+<section id="aprendizaje" class="py-16 bg-color3">
+    <h2 class="text-center text-3xl font-semibold text-color1 mb-8 fade-in">Nuestros Servicios 💇‍♂️</h2>
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <h3 class="text-xl font-semibold text-color1">Corte Clásico</h3>
+            <p class="mt-4 text-gray-600">Estilo tradicional que nunca pasa de moda.</p>
+        </div>
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <h3 class="text-xl font-semibold text-color1">Corte Moderno</h3>
+            <p class="mt-4 text-gray-600">Cortes vanguardistas para un look actual.</p>
+        </div>
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <h3 class="text-xl font-semibold text-color1">Afeitado</h3>
+            <p class="mt-4 text-gray-600">Afeitado al ras para una piel suave.</p>
+        </div>
+    </div>
+</section>
 
-            <label for="email">Correo Electrónico</label>
-            <input type="email" id="email" name="email" required>
+<!-- Quien lo enseña (Nuestro Barbero) -->
+<section id="instructor" class="py-16 bg-white">
+    <h2 class="text-center text-3xl font-semibold text-color1 mb-8 fade-in">Conoce a Nuestro Barbero 🧔</h2>
+    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+        <div class="w-1/2 text-center md:text-left fade-in">
+            <img src="../images/peluquero-800x597.jpg" alt="Barbero" class="rounded-full mx-auto md:mx-0 w-80 h-80">
+        </div>
+        <div class="w-1/2 fade-in">
+            <h3 class="text-2xl font-bold text-color1 mb-4">Alejandro</h3>
+            <p class="text-gray-600">Con más de 15 años de experiencia, Alejandro ha transformado la apariencia de cientos de hombres con su toque artístico y profesionalismo.</p>
+        </div>
+    </div>
+</section>
 
-            <label for="message">Mensaje</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+<!-- Temario del curso (Estilos) -->
+<section id="temario" class="py-16 bg-color3">
+    <h2 class="text-center text-3xl font-semibold text-color1 mb-8 fade-in">Estilos que Ofrecemos ✂️</h2>
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <img src="../images/d2296fcf78c6c6b4b4f9c71a48284e06.jpg" alt="Estilo Fade" class="w-full h-50 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold text-color1">Fade</h3>
+            <p class="mt-4 text-gray-600">El clásico degradado que nunca pasa de moda.</p>
+        </div>
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <img src="../images/images.jpg" alt="Estilo Pompadour" class="w-full h-50 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold text-color1">Pompadour</h3>
+            <p class="mt-4 text-gray-600">El estilo voluminoso y sofisticado de los años 50.</p>
+        </div>
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <img src="../images/5895569f805b08685af3f33caf6c137f.jpg" alt="Estilo Quiff" class="w-full h-50 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold text-color1">Quiff</h3>
+            <p class="mt-4 text-gray-600">Una mezcla de lo clásico y lo moderno para un look versátil.</p>
+        </div>
+        <!-- Puedes agregar más estilos de la misma manera -->
+    </div>
+</section>
 
-            <button type="submit">Enviar Mensaje</button>
-        </form>
-    </section>
+<!-- Preguntas Frecuentes -->
+<section id="faq" class="py-16 bg-white">
+    <h2 class="text-center text-3xl font-semibold text-color1 mb-8 fade-in">Preguntas Frecuentes ❓</h2>
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Pregunta 1 -->
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <h3 class="text-xl font-semibold text-color1">¿Cuánto tiempo dura un corte?</h3>
+            <p class="mt-4 text-gray-600">En promedio, un corte de cabello dura entre 30 y 45 minutos, dependiendo del tipo de corte y la complejidad del estilo que elijas. Si optas por un corte más detallado o un servicio adicional, como un afeitado, puede tardar un poco más.</p>
+        </div>
+        <!-- Pregunta 2 -->
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <h3 class="text-xl font-semibold text-color1">¿Es necesario reservar cita?</h3>
+            <p class="mt-4 text-gray-600">Sí, recomendamos hacer una reserva para asegurarte de que tengamos disponibilidad en el horario que prefieras. Si llegas sin cita, podemos atenderte si hay espacio, pero la disponibilidad no está garantizada.</p>
+        </div>
+        <!-- Pregunta 3 -->
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <h3 class="text-xl font-semibold text-color1">¿Ofrecen servicios de barba?</h3>
+            <p class="mt-4 text-gray-600">Sí, ofrecemos una variedad de servicios de barba que incluyen afeitado al ras, recorte de barba, arreglos de bigote, y más. Todos nuestros servicios de barba están diseñados para dejarte una apariencia limpia y fresca.</p>
+        </div>
+        <!-- Pregunta 4 -->
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <h3 class="text-xl font-semibold text-color1">¿Cuáles son sus horarios?</h3>
+            <p class="mt-4 text-gray-600">Estamos abiertos de lunes a sábado, de 9 a.m. a 7 p.m. Los domingos cerramos para descansar y recargar energías para la próxima semana. Puedes reservar tu cita en cualquier momento a través de nuestro sitio web.</p>
+        </div>
+        <!-- Nueva Pregunta 5 -->
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <h3 class="text-xl font-semibold text-color1">¿Hacen cortes para niños?</h3>
+            <p class="mt-4 text-gray-600">¡Por supuesto! Contamos con un servicio especial para niños, donde les hacemos cortes cómodos y rápidos. Nuestros barberos son muy pacientes y amables, lo que garantiza que la experiencia sea divertida y sin estrés para los pequeños.</p>
+        </div>
+        <!-- Nueva Pregunta 6 -->
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <h3 class="text-xl font-semibold text-color1">¿Puedo cambiar mi cita si no puedo asistir?</h3>
+            <p class="mt-4 text-gray-600">Sí, puedes modificar o cancelar tu cita con al menos 24 horas de antelación. Si necesitas reprogramar, simplemente contáctanos por teléfono o correo electrónico y estaremos encantados de ayudarte a encontrar una nueva fecha y hora que te convenga.</p>
+        </div>
+        <!-- Nueva Pregunta 7 -->
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <h3 class="text-xl font-semibold text-color1">¿Tienen servicios de coloración?</h3>
+            <p class="mt-4 text-gray-600">Actualmente no ofrecemos servicios de coloración en nuestro salón. Sin embargo, estamos considerando agregar este servicio próximamente. Te invitamos a estar atento a nuestras actualizaciones para saber cuándo estará disponible.</p>
+        </div>
+        <!-- Nueva Pregunta 8 -->
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <h3 class="text-xl font-semibold text-color1">¿Se pueden hacer cortes de tendencia o estilos especiales?</h3>
+            <p class="mt-4 text-gray-600">Sí, nuestros barberos están capacitados y actualizados en las últimas tendencias de cortes de cabello. Si buscas algo único, ya sea un corte moderno o un estilo personalizado, no dudes en pedirlo. Te ayudaremos a lograr el look que deseas.</p>
+        </div>
+    </div>
+</section>
 
-    <!-- Pie de página -->
-    <footer>
-        <p>&copy; 2024 Peluquería Estilo. Todos los derechos reservados.</p>
-    </footer>
+
+<!-- Precios -->
+<section id="precio" class="py-16 bg-white">
+    <h2 class="text-center text-3xl font-semibold text-color1 mb-8 fade-in">Nuestros Precios 💵</h2>
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <h3 class="text-xl font-semibold text-color1">Corte Básico</h3>
+            <p class="mt-4 text-gray-600">Un corte sencillo y elegante. Ideal para el día a día.</p>
+            <p class="mt-4 text-2xl font-bold text-color4">$15</p>
+            <a href="#" class="btn-reservar mt-4 block">Reservar</a>
+        </div>
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <h3 class="text-xl font-semibold text-color1">Corte Premium</h3>
+            <p class="mt-4 text-gray-600">Incluye lavado, corte y peinado. Perfecto para ocasiones especiales.</p>
+            <p class="mt-4 text-2xl font-bold text-color4">$25</p>
+            <a href="#" class="btn-reservar mt-4 block">Reservar</a>
+        </div>
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <h3 class="text-xl font-semibold text-color1">Corte + Barba</h3>
+            <p class="mt-4 text-gray-600">Un paquete completo para lucir impecable de pies a cabeza.</p>
+            <p class="mt-4 text-2xl font-bold text-color4">$30</p>
+            <a href="#" class="btn-reservar mt-4 block">Reservar</a>
+        </div>
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover-grow fade-in">
+            <h3 class="text-xl font-semibold text-color1">Corte Infantil</h3>
+            <p class="mt-4 text-gray-600">Corte especial para los más pequeños de la casa.</p>
+            <p class="mt-4 text-2xl font-bold text-color4">$12</p>
+            <a href="#" class="btn-reservar mt-4 block">Reservar</a>
+        </div>
+    </div>
+</section>
+
+<!-- Contacto -->
+<section id="contacto" class="py-16 bg-color3">
+    <h2 class="text-center text-3xl font-semibold text-color1 mb-8 fade-in">Contáctanos 📞</h2>
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <!-- Información de contacto -->
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md fade-in">
+            <h3 class="text-xl font-semibold text-color1 mb-4">Información de Contacto</h3>
+            <p class="text-gray-600 mb-2"><strong>Teléfono:</strong> +34 123 456 789</p>
+            <p class="text-gray-600 mb-2"><strong>Correo:</strong> <a href="mailto:info@peluqueriaalejandro.com" class="text-color4 hover:underline">info@peluqueriaalejandro.com</a></p>
+            <p class="text-gray-600 mb-4"><strong>Correo Alternativo:</strong> <a href="mailto:reservas@peluqueriaalejandro.com" class="text-color4 hover:underline">reservas@peluqueriaalejandro.com</a></p>
+            <p class="text-gray-600"><strong>Dirección:</strong></p>
+            <p class="text-gray-600">Calle de los Peinados 123,<br>Madrid, España</p>
+        </div>
+
+        <!-- Formulario de contacto -->
+        <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-md fade-in">
+            <h3 class="text-xl font-semibold text-color1 mb-4">Envíanos un Mensaje</h3>
+            <form>
+                <div class="mb-4">
+                    <label for="nombre" class="block text-gray-700 mb-2">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Tu nombre" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 mb-2">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Tu correo electrónico" required>
+                </div>
+                <div class="mb-4">
+                    <label for="mensaje" class="block text-gray-700 mb-2">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+                <a href="#" class="btn-reservar mt-4 block">ENVIAR</a>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+ <!-- Footer -->
+ <footer class="bg-color1 text-color5 py-8">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+        <!-- Información de contacto -->
+        <div>
+            <h3 class="text-xl font-semibold mb-4">Contacto 📞</h3>
+            <p>Teléfono: +34 123 456 789</p>
+            <p>Correo: info@peluqueriaalejandro.com</p>
+            <p>Dirección: Calle de los Peinados 123, Madrid, España</p>
+        </div>
+
+        <!-- Horarios -->
+        <div>
+            <h3 class="text-xl font-semibold mb-4">Horarios ⏰</h3>
+            <p>Lunes a Viernes: 9:00 AM - 7:00 PM</p>
+            <p>Sábado: 10:00 AM - 3:00 PM</p>
+            <p>Domingo: Cerrado</p>
+        </div>
+
+        <!-- Enlaces rápidos -->
+        <div>
+            <h3 class="text-xl font-semibold mb-4">Enlaces Rápidos 🌐</h3>
+            <ul>
+                <li><a href="#servicios" class="hover:underline">Servicios</a></li>
+                <li><a href="#precio" class="hover:underline">Precios</a></li>
+                <li><a href="#contacto" class="hover:underline">Contáctanos</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="text-center mt-8">
+        <p>&copy; 2025 Peluquería Alejandro. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
 
 </body>
 </html>
